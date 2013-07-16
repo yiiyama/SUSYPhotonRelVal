@@ -42,8 +42,8 @@ elif [ $# -eq 4 ]; then
     FILE1=$2
     FILE2=$4
     if [ $REL1 = $REL2 ]; then
-        TAG1=$(basename $REL1)_$(echo $FILE1 | sed 's|^\([^.]*\)[.].*$|\1|')
-        TAG2=$(basename $REL2)_$(echo $FILE2 | sed 's|^\([^.]*\)[.].*$|\1|')
+        TAG1=$(basename $REL1)_$(basename $FILE1 | sed 's|^\([^.]*\)[.].*$|\1|')
+        TAG2=$(basename $REL2)_$(basename $FILE2 | sed 's|^\([^.]*\)[.].*$|\1|')
     else
         TAG1=$(basename $REL1)
         TAG2=$(basename $REL2)
