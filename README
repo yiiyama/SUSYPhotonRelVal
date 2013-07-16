@@ -1,0 +1,29 @@
+Usage:
+
+scram p CMSSW_X_Y_Z
+cd NAME0/src
+cmsenv
+cvs co ...
+...
+scram b -j8
+cd SusyAnalysis/SusyNtuplizer/macro
+make
+(set the input source and maxEvents as needed)
+cmsRun ../runOverAOD.py
+
+Do the same for another release (need to have another CMSSW workspace)
+
+Then in this directory,
+./relval $CMSSW_BASE_OF_RELEASE0 $CMSSW_BASE_OF_RELEASE1
+
+The result of the comparison is listed in relvalNtuples.html
+The plots are in img/
+
+The ntuples files are assumed to be located at $CMSSW_BASE/src/SusyAnalysis/SusyNtulizer/macro/susyEvents.root.
+It is also possible to give file names explicitly:
+./relval $CMSSW_BASE_OF_RELEASE0 $FILE_FOR_RELEASE0 $CMSSW_BASE_OF_RELEASE1 $FILE_FOR_RELEASE1
+
+
+Options:
+  -d HTMLDIR
+        Specifies the directory in which the html file and the img directory will be created
